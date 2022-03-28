@@ -1,0 +1,47 @@
+<div class="example-header">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Filter">
+    </mat-form-field>
+</div>
+  
+<div class="example-container mat-elevation-z8">
+  
+    <mat-table [dataSource]="dataSource" matSort>
+  
+        <!-- ID Column -->
+        <ng-container matColumnDef="cd1">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> เลขที่ </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.cd1}} </mat-cell>
+        </ng-container>
+    
+        <!-- Progress Column -->
+        <ng-container matColumnDef="cd2">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> เลขประจำตัว </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.cd2}} </mat-cell>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="cd3">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ชื่อ </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.cd3}} </mat-cell>
+        </ng-container>
+    
+        <!-- Color Column -->
+        <ng-container matColumnDef="cd4">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> นามสุกล </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.cd4}} </mat-cell>
+            <!-- <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.cd4}} </mat-cell> -->
+        </ng-container>
+
+        <ng-container matColumnDef="cd5">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> ชั้น/ห้อง </mat-header-cell>
+            <mat-cell *matCellDef="let row"> {{row.cd5}} </mat-cell>
+        </ng-container>
+    
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns; let i=index;">
+        </mat-row>
+    </mat-table>
+  
+    <mat-paginator [pageSizeOptions]="[10, 20, 50, 100, 200, 300, 500]" showFirstLastButtons></mat-paginator>
+</div>
