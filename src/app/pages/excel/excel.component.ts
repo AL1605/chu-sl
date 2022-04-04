@@ -29,6 +29,7 @@ export class ExcelComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   onChange(evt:any) {
@@ -63,6 +64,7 @@ export class ExcelComponent implements OnInit {
 
             }
             else {
+              /*
               if (dataStudent.find((item: any) => item.cd2 == value.cd2 && (item.cd3.trim() != value.cd3.trim() || item.cd4.trim() != value.cd4.trim()))) {
                 duplicateID.push(value); 
               }
@@ -70,6 +72,30 @@ export class ExcelComponent implements OnInit {
               if (dataStudent.find((item: any) => item.cd3.trim() == value.cd3.trim() && item.cd4.trim() == value.cd4.trim())) {
                 duplicateName.push(value); 
               }
+              */
+
+              if (dataStudent.find((item: any) => `${item.cd2}`.replace(/\s/g, '') === `${value.cd2}`.replace(/\s/g, ''))){
+                // console.log(dataStudent.find((item: any) => `${item.cd2}`.replace(/\s/g, '') === `${value.cd2}`.replace(/\s/g, '')));
+                // console.log(value);
+
+                if (!duplicateID.find((item: any) => `${item.cd2}`.replace(/\s/g, '') === `${value.cd2}`.replace(/\s/g, ''))){
+                  duplicateID.push(dataStudent.find((item: any) => `${item.cd2}`.replace(/\s/g, '') === `${value.cd2}`.replace(/\s/g, '')));
+                }
+
+                duplicateID.push(value); 
+              }
+              if (dataStudent.find((item: any) => item.cd3.replace(/\s/g, '') === value.cd3.replace(/\s/g, '') && item.cd4.replace(/\s/g, '') === value.cd4.replace(/\s/g, '') && (`${item.cd2}`.replace(/\s/g, '') !== `${value.cd2}`.replace(/\s/g, '')))) {
+                if (!duplicateName.find((item: any) => item.cd3.replace(/\s/g, '') === value.cd3.replace(/\s/g, '') && item.cd4.replace(/\s/g, '') === value.cd4.replace(/\s/g, '') && (`${item.cd2}`.replace(/\s/g, '') !== `${value.cd2}`.replace(/\s/g, '')))) {
+                  duplicateName.push(dataStudent.find((item: any) => item.cd3.replace(/\s/g, '') === value.cd3.replace(/\s/g, '') && item.cd4.replace(/\s/g, '') === value.cd4.replace(/\s/g, '') && (`${item.cd2}`.replace(/\s/g, '') !== `${value.cd2}`.replace(/\s/g, ''))));
+                }
+                
+                duplicateName.push(value); 
+              }
+               
+              if(!value.cd2){
+                // console.log(value);
+              }
+
 
               dataStudent.push(value); 
               countRows++;
@@ -109,9 +135,13 @@ export class ExcelComponent implements OnInit {
   }
 
   removeData() {
+    /*
     this.inputFile.nativeElement.value = '';
     this.dataSheet.next(null);
     this.keys = [];
+    */
+
+    location.reload();
   }
 
 }

@@ -98,14 +98,17 @@
                             <input (change)="onChange($event)" class="form-control" type="file" id="formFile" #inputFile>
                         </div>
                         <div class="col-2">
-                            <button type="button" class="btn btn-danger" (click)="removeData()">Remove Data</button>
+                            <button class="btn btn-danger" (click)="removeData()">
+                                <!-- <i class="fa fa-window-close fa-3" aria-hidden="true"></i>  -->
+                                Remove Data
+                            </button>
                         </div>
                         <div class="col-12 mt-4">
                             <mat-tab-group mat-align-tabs="center">
                                 <mat-tab>
                                   <ng-template mat-tab-label>
                                     <mat-icon class="mr-2">people</mat-icon>
-                                    รายชื่อนักเรียนทั้งหมด
+                                    <span>รายชื่อนักเรียนทั้งหมด</span>
                                   </ng-template>
                                   <app-table-duplicate-information [student]="student" *ngIf="student.length"></app-table-duplicate-information>
                                 </mat-tab>
@@ -113,7 +116,7 @@
                                 <mat-tab>
                                   <ng-template mat-tab-label>
                                     <mat-icon class="mr-2">assignment</mat-icon>
-                                    เลขประจำตัวซ้ำ
+                                    <span matBadge="{{countDuplicateID}}" matBadgeColor="warn" matBadgeOverlap="false">เลขประจำตัวซ้ำ</span>
                                   </ng-template>
                                   <app-table-duplicate-information [student]="duplicateID" *ngIf="duplicateID.length"></app-table-duplicate-information>
                                 </mat-tab>
@@ -121,7 +124,7 @@
                                 <mat-tab>
                                   <ng-template mat-tab-label>
                                     <mat-icon class="mr-2">assignment_ind</mat-icon>
-                                    ชื่อ-นามสกุลซ้ำ
+                                    <span matBadge="{{countDuplicateName}}" matBadgeColor="warn" matBadgeOverlap="false">ชื่อ-นามสกุลซ้ำ</span>
                                   </ng-template>
                                   <app-table-duplicate-information [student]="duplicateName" *ngIf="duplicateName.length"></app-table-duplicate-information>
                                 </mat-tab>
