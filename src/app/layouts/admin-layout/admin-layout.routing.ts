@@ -9,7 +9,7 @@ import { ExcelComponent } from '../../pages/excel/excel.component';
 
 export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
-    { path: 'excel',          component: ExcelComponent },
+    { path: 'check-name',          component: ExcelComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'tables',         component: TablesComponent },
     { path: 'icons',          component: IconsComponent },
