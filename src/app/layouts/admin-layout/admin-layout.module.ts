@@ -14,6 +14,8 @@ import { TablesComponent } from '../../pages/tables/tables.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ExcelComponent } from '../../pages/excel/excel.component';
 import { SharedModule } from '../../shared/shared.module';
+import { CheckNameComponent } from 'src/app/pages/check-name/check-name.component';
+import { CheckGradeComponent } from 'src/app/pages/check-grade/check-grade.component';
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -33,6 +35,8 @@ import { SharedModule } from '../../shared/shared.module';
     IconsComponent,
     MapsComponent,
     ExcelComponent,
+    CheckNameComponent,
+    CheckGradeComponent
   ]
 })
 
